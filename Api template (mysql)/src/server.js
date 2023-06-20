@@ -2,6 +2,7 @@ require('dotenv').config()
 const express=require('express')
 const bodyParser=require('body-parser')
 const cors=require('cors')
+const { query,body ,validationResult,matchedData} = require('express-validator');
 // const database=require('./database/database')
 const app=express()
 app.use(bodyParser.json());
