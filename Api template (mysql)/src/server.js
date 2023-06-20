@@ -2,10 +2,9 @@ require('dotenv').config()
 const express=require('express')
 const bodyParser=require('body-parser')
 const cors=require('cors')
-const database=require('./database/database')
+// const database=require('./database/database')
 const app=express()
 app.use(bodyParser.json());
-app.use(express.static('./public'))
 app.use(cors())
 
 
