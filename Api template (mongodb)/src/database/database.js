@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
-const dbURL=process.env.DB_URL
-const dbName=process.env.DB_NAME
+const dbURL=process.env.PRODUCTION == 1 ? process.env.DB_P_URL :process.env.DB_URL
+const dbName=process.env.PRODUCTION == 1 ? '' : process.env.DB_NAME
 
 
 //////////////////////
-const init =  () => {
-    mongoose.connect(dbURL+dbName);
+const init = async () => {
+    await mongoose.connect(dbURL+dbName);
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "connection error: "));
     db.once("open", function () {
-        console.log("database connected successfully");
+        console.log("mongodb connected.");
     });
 }
 
